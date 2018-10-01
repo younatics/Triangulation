@@ -19,7 +19,7 @@ public class TriangulationView: UIView {
     convenience public init(frame: CGRect, image: UIImage) {
         self.init(frame: frame)
         
-        let vertices = generateVertices(bounds.size, cellSize: 10)
+        let vertices = generateVertices(bounds.size, cellSize: 20)
         let triangles = Delaunay().triangulate(vertices)
         
         for triangle in triangles {
@@ -106,6 +106,8 @@ public class TriangulationView: UIView {
     
     /// Generate set of vertices for our triangulation to use
     func generateVertices(_ size: CGSize, cellSize: CGFloat, variance: CGFloat = 0.75, seed: UInt64 = numericCast(arc4random())) -> [Vertex] {
+        var cellSize = cellSize
+
         let cellsX = (size.width + 4 * cellSize) / cellSize
         let cellsY = (size.height + 4 * cellSize) / cellSize
         
@@ -120,14 +122,19 @@ public class TriangulationView: UIView {
         let minY = -bleedY
         let maxY = size.height + bleedY
         
-        let generator = GKLinearCongruentialRandomSource(seed: seed)
+        print("minX: \(minX)")
+        print("maxX: \(maxX)")
+        print("minY: \(minY)")
+        print("maxY: \(maxY)")
         
+        let generator = GKLinearCongruentialRandomSource(seed: seed)
         for i in stride(from: minX, to: maxX, by: cellSize) {
             for j in stride(from: minY, to: maxY, by: cellSize) {
-                
+                cellSize = CGFloat.random(in: 5 ..< 60)
+
                 let x = i + cellSize/2 + CGFloat(generator.nextUniform()) + CGFloat.random(-_variance, _variance)
                 let y = j + cellSize/2 + CGFloat(generator.nextUniform()) + CGFloat.random(-_variance, _variance)
-                
+
                 points.append(Vertex(x: Double(x), y: Double(y)))
             }
         }
