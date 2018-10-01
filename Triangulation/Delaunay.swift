@@ -11,7 +11,6 @@ import Darwin
 @objc open class Delaunay : NSObject {
     public override init() { }
     
-    /* Generates a supertraingle containing all other triangles */
     fileprivate func supertriangle(_ vertices: [Vertex]) -> [Vertex] {
         var xmin = Double(Int32.max)
         var ymin = Double(Int32.max)
@@ -129,18 +128,9 @@ import Darwin
         var completed = [Circumcircle]()
         var edges = [Vertex]()
         
-        /* Make an array of indices into the vertex array, sorted by the
-        * vertices' x-position. */
         var indices = [Int](0..<n).sorted {  _vertices[$0].x < _vertices[$1].x }
         
-        /* Next, find the vertices of the supertriangle (which contains all other
-        * triangles) */
-        
         _vertices += supertriangle(_vertices)
-        
-        /* Initialize the open list (containing the supertriangle and nothing
-        * else) and the closed list (which is empty since we havn't processed
-        * any triangles yet). */
         open.append(circumcircle(_vertices[n], j: _vertices[n + 1], k: _vertices[n + 2]))
         
         /* Incrementally add each vertex to the mesh. */
@@ -149,14 +139,7 @@ import Darwin
             
             edges.removeAll()
             
-            /* For each open triangle, check to see if the current point is
-            * inside it's circumcircle. If it is, remove the triangle and add
-            * it's edges to an edge list. */
             for j in (0..<open.count).reversed() {
-                
-                /* If this point is to the right of this triangle's circumcircle,
-                * then this triangle should never get checked again. Remove it
-                * from the open list, add it to the closed list, and skip. */
                 let dx = _vertices[c].x - open[j].x
                 
                 if dx > 0 && dx * dx > open[j].rsqr {
@@ -164,14 +147,12 @@ import Darwin
                     continue
                 }
                 
-                /* If we're outside the circumcircle, skip this triangle. */
                 let dy = _vertices[c].y - open[j].y
                 
                 if dx * dx + dy * dy - open[j].rsqr > Double.ulpOfOne {
                     continue
                 }
                 
-                /* Remove the triangle and add it's edges to the edge list. */
                 edges += [
                     open[j].vertex1, open[j].vertex2,
                     open[j].vertex2, open[j].vertex3,
@@ -186,11 +167,8 @@ import Darwin
                 
                 open.remove(at: j)
             }
-            
-            /* Remove any doubled edges. */
             edges = dedup(edges)
             
-            /* Add a new triangle for each edge. */
             var j = edges.count
             while j > 0 {
                 
@@ -201,26 +179,18 @@ import Darwin
                 open.append(circumcircle(a, j: b, k: _vertices[c]))
             }
         }
-        
-        /* Copy any remaining open triangles to the closed list, and then
-        * remove any triangles that share a vertex with the supertriangle,
-        * building a list of triplets that represent triangles. */
         completed += open
         
         let ignored: Set<Vertex> = [_vertices[n], _vertices[n + 1], _vertices[n + 2]]
         
         let results = completed.compactMap { (circumCircle) -> Triangle? in
-            
             let current: Set<Vertex> = [circumCircle.vertex1, circumCircle.vertex2, circumCircle.vertex3]
             let intersection = ignored.intersection(current)
             if intersection.count > 0 {
                 return nil
             }
-            
             return Triangle(vertex1: circumCircle.vertex1, vertex2: circumCircle.vertex2, vertex3: circumCircle.vertex3)
         }
-        
-        /* Yay, we're done! */
         return results
     }
 }
