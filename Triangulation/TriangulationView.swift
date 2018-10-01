@@ -14,7 +14,7 @@ public class TriangulationView: UIView {
         super.init(frame: frame)
     }
     
-    convenience public init(frame: CGRect, image: UIImage, cellSize: CGFloat = 20) {
+    convenience public init(frame: CGRect, image: UIImage, cellSize: CGFloat = 30) {
         self.init(frame: frame)
         
         let vertices = generateVertices(bounds.size, cellSize: cellSize)
