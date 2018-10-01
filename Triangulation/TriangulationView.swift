@@ -24,7 +24,7 @@ public class TriangulationView: UIView {
             let triangleLayer = CAShapeLayer()
             let path = triangle.toPath()
             triangleLayer.path = path
-            let color = getPixelColor(cropImage(image, toRect: path.boundingBox), CGPoint.zero)
+            let color = getPixelColor(cropImage(image, toRect: path.boundingBox))
             triangleLayer.fillColor = color.cgColor
             triangleLayer.backgroundColor = UIColor.clear.cgColor
             layer.addSublayer(triangleLayer)
@@ -39,12 +39,10 @@ public class TriangulationView: UIView {
         }
     }
     
-    func getPixelColor(_ image:UIImage?, _ point: CGPoint) -> UIColor {
-        guard let image = image else { return UIColor.clear }
-        let cgImage : CGImage = image.cgImage!
-        guard let cgImageData = cgImage.dataProvider?.data, let pixelData = CGDataProvider(data: cgImageData)?.data else {
-            return UIColor.clear
-        }
+    func getPixelColor(_ image:UIImage?, _ point: CGPoint = CGPoint.zero) -> UIColor {
+        guard let image = image,
+            let cgImageData = image.cgImage?.dataProvider?.data,
+            let pixelData = CGDataProvider(data: cgImageData)?.data else { return UIColor.clear }
         
         let data = CFDataGetBytePtr(pixelData)!
         let x = Int(point.x)
@@ -98,3 +96,4 @@ public class TriangulationView: UIView {
         return points
     }
 }
+

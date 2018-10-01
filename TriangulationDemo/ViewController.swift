@@ -14,18 +14,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let croppedImage = cropImage(imageToCrop: imageView.image!, toRect: self.view.bounds)
-        let triangleView = TriangulationView(frame: view.bounds, image: croppedImage!, cellSize: 30)
+        let image = imageView.image!
+        let triangleView = TriangulationView(frame: imageView.frame, image: image, cellSize: 20)
         view.addSubview(triangleView)
     }
-    
-    func cropImage(imageToCrop:UIImage, toRect rect:CGRect) -> UIImage? {
-        if let imageRef = imageToCrop.cgImage?.cropping(to: rect) {
-            return UIImage(cgImage:imageRef)
-        } else {
-            return nil
-        }
-    }
-
 }
-

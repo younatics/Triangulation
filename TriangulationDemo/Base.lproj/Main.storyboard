@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1043.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="TcU-Fu-Woy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1043.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="TcU-Fu-Woy">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_1043.JPG" width="1920" height="2560"/>
+        <image name="IMG_1043.JPG" width="1550" height="2053"/>
     </resources>
 </document>
