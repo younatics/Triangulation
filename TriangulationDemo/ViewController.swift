@@ -15,8 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let croppedImage = cropImage(imageToCrop: imageView.image!, toRect: self.view.bounds)
-        self.imageView.image = croppedImage
-        let triangleView = TriangulationView(frame: view.bounds, image: croppedImage!)
+        let triangleView = TriangulationView(frame: view.bounds, image: croppedImage!, cellSize: 30)
         view.addSubview(triangleView)
     }
     

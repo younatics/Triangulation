@@ -7,7 +7,7 @@
 //
 
 /// Represents a bounding circle for a set of 3 vertices
-internal struct Circumcircle {
+struct Circumcircle {
     let vertex1: Vertex
     let vertex2: Vertex
     let vertex3: Vertex

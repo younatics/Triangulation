@@ -8,10 +8,10 @@
 
 import Darwin
 
-@objc open class Delaunay : NSObject {
-    public override init() { }
+@objc class Delaunay : NSObject {
+    override init() { }
     
-    fileprivate func supertriangle(_ vertices: [Vertex]) -> [Vertex] {
+    func supertriangle(_ vertices: [Vertex]) -> [Vertex] {
         var xmin = Double(Int32.max)
         var ymin = Double(Int32.max)
         var xmax = -Double(Int32.max)
@@ -38,7 +38,7 @@ import Darwin
     }
     
     /* Calculate a circumcircle for a set of 3 vertices */
-    fileprivate func circumcircle(_ i: Vertex, j: Vertex, k: Vertex) -> Circumcircle {
+    private func circumcircle(_ i: Vertex, j: Vertex, k: Vertex) -> Circumcircle {
         let x1 = i.x
         let y1 = i.y
         let x2 = j.x
@@ -86,7 +86,7 @@ import Darwin
         return Circumcircle(vertex1: i, vertex2: j, vertex3: k, x: xc, y: yc, rsqr: rsqr)
     }
     
-    fileprivate func dedup(_ edges: [Vertex]) -> [Vertex] {
+    func dedup(_ edges: [Vertex]) -> [Vertex] {
         
         var e = edges
         var a: Vertex?, b: Vertex?, m: Vertex?, n: Vertex?
@@ -116,7 +116,7 @@ import Darwin
         return e
     }
     
-    open func triangulate(_ vertices: [Vertex]) -> [Triangle] {
+    func triangulate(_ vertices: [Vertex]) -> [Triangle] {
         var _vertices = Array(Set(vertices))
         
         guard _vertices.count >= 3 else {

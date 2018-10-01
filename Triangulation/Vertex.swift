@@ -8,18 +8,18 @@
 
 import CoreGraphics
 
-public struct Vertex: Hashable {
-    public init(x: Double, y: Double) {
+struct Vertex: Hashable {
+    init(x: Double, y: Double) {
         self.x = x
         self.y = y
     }
     
-    public func pointValue() -> CGPoint {
+    func pointValue() -> CGPoint {
         return CGPoint(x: x, y: y)
     }
     
-    public let x: Double
-    public let y: Double
+    let x: Double
+    let y: Double
 }
 
 extension Vertex: Equatable { 
