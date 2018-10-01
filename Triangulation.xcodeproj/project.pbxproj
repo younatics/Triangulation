@@ -8,12 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		19BAC8D221622E6500705240 /* Triangulation.h in Headers */ = {isa = PBXBuildFile; fileRef = 19BAC8C421622E6500705240 /* Triangulation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19BAC8E121622F2100705240 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8DB21622F2100705240 /* Hash.swift */; };
+		19BAC8E221622F2100705240 /* Delaunay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8DC21622F2100705240 /* Delaunay.swift */; };
+		19BAC8E321622F2100705240 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8DD21622F2100705240 /* Vertex.swift */; };
+		19BAC8E421622F2100705240 /* Circumcircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8DE21622F2100705240 /* Circumcircle.swift */; };
+		19BAC8E521622F2100705240 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8DF21622F2100705240 /* Triangle.swift */; };
+		19BAC8E621622F2100705240 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8E021622F2100705240 /* Edge.swift */; };
+		19BAC8E821622F6600705240 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8E721622F6600705240 /* Extension.swift */; };
+		19BAC8EA2162304900705240 /* TriangulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BAC8E92162304900705240 /* TriangulationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		19BAC8C121622E6500705240 /* Triangulation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Triangulation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BAC8C421622E6500705240 /* Triangulation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Triangulation.h; sourceTree = "<group>"; };
 		19BAC8C521622E6500705240 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19BAC8DB21622F2100705240 /* Hash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
+		19BAC8DC21622F2100705240 /* Delaunay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delaunay.swift; sourceTree = "<group>"; };
+		19BAC8DD21622F2100705240 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		19BAC8DE21622F2100705240 /* Circumcircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circumcircle.swift; sourceTree = "<group>"; };
+		19BAC8DF21622F2100705240 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		19BAC8E021622F2100705240 /* Edge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		19BAC8E721622F6600705240 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		19BAC8E92162304900705240 /* TriangulationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangulationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +62,14 @@
 		19BAC8C321622E6500705240 /* Triangulation */ = {
 			isa = PBXGroup;
 			children = (
+				19BAC8E92162304900705240 /* TriangulationView.swift */,
+				19BAC8DE21622F2100705240 /* Circumcircle.swift */,
+				19BAC8DC21622F2100705240 /* Delaunay.swift */,
+				19BAC8E021622F2100705240 /* Edge.swift */,
+				19BAC8DB21622F2100705240 /* Hash.swift */,
+				19BAC8DF21622F2100705240 /* Triangle.swift */,
+				19BAC8DD21622F2100705240 /* Vertex.swift */,
+				19BAC8E721622F6600705240 /* Extension.swift */,
 				19BAC8C421622E6500705240 /* Triangulation.h */,
 				19BAC8C521622E6500705240 /* Info.plist */,
 			);
@@ -96,6 +120,7 @@
 				TargetAttributes = {
 					19BAC8C021622E6500705240 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -131,6 +156,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19BAC8E221622F2100705240 /* Delaunay.swift in Sources */,
+				19BAC8E121622F2100705240 /* Hash.swift in Sources */,
+				19BAC8E821622F6600705240 /* Extension.swift in Sources */,
+				19BAC8E621622F2100705240 /* Edge.swift in Sources */,
+				19BAC8E521622F2100705240 /* Triangle.swift in Sources */,
+				19BAC8E421622F2100705240 /* Circumcircle.swift in Sources */,
+				19BAC8EA2162304900705240 /* TriangulationView.swift in Sources */,
+				19BAC8E321622F2100705240 /* Vertex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +295,7 @@
 		19BAC8D621622E6500705240 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -279,6 +313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.Triangulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,6 +322,7 @@
 		19BAC8D721622E6500705240 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
