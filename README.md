@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Triangulation.svg?style=flat)](http://cocoapods.org/pods/Triangulation)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
-## Intoduction
+## Introduction
 📐 Triangulate your image! `Triangulation` will magically change your image like this!
 
 | Before | After |
