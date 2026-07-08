@@ -6,6 +6,7 @@
 //  Copyright © 2016 zero. All rights reserved.
 //
 
+import Foundation
 import Darwin
 
 @objc class Delaunay : NSObject {
@@ -128,7 +129,7 @@ import Darwin
         var completed = [Circumcircle]()
         var edges = [Vertex]()
         
-        var indices = [Int](0..<n).sorted {  _vertices[$0].x < _vertices[$1].x }
+        let indices = [Int](0..<n).sorted {  _vertices[$0].x < _vertices[$1].x }
         
         _vertices += supertriangle(_vertices)
         open.append(circumcircle(_vertices[n], j: _vertices[n + 1], k: _vertices[n + 2]))

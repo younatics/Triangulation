@@ -18,10 +18,10 @@ extension Edge: Equatable {
 }
 
 extension Edge: Hashable {
-    var hashValue: Int {
-        var seed = UInt(0)
-        hash_combine(seed: &seed, value: UInt(bitPattern: vertex1.hashValue))
-        hash_combine(seed: &seed, value: UInt(bitPattern: vertex2.hashValue))
-        return Int(bitPattern: seed)
+    func hash(into hasher: inout Hasher) {
+        // Edges are undirected (a-b == b-a), so hash the two vertices
+        // commutatively; otherwise equal edges could hash differently and
+        // violate the Hashable contract.
+        hasher.combine(vertex1.hashValue ^ vertex2.hashValue)
     }
 }
