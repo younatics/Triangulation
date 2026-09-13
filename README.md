@@ -1,9 +1,9 @@
 # Triangulation
-[![Version](https://img.shields.io/cocoapods/v/Triangulation.svg?style=flat)](http://cocoapods.org/pods/Triangulation)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg?style=flat)](https://github.com/younatics/Triangulation)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Triangulation.svg?style=flat)](https://cocoapods.org/pods/Triangulation)
+[![Platform: iOS 13.0+](https://img.shields.io/badge/platform-iOS%2013.0%2B-lightgrey.svg?style=flat)](https://developer.apple.com/ios/)
+[![Swift 6.0](https://img.shields.io/badge/Swift-6.0-orange.svg?style=flat)](https://www.swift.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/younatics/Triangulation/blob/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/Triangulation.svg?style=flat)](http://cocoapods.org/pods/Triangulation)
-[![Swift 6.0](https://img.shields.io/badge/Swift-6.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## Introduction
 📐 Triangulate your image! `Triangulation` will magically change your image like this!
@@ -15,7 +15,7 @@
 
 ## Requirements
 
-`Triangulation` is written in Swift 6. Compatible with iOS 13.0+. Supports Swift Package Manager, CocoaPods, and Carthage.
+`Triangulation` is written in Swift 6.0 and requires iOS 13.0 or later. It supports Swift Package Manager and CocoaPods.
 
 ## Installation
 
@@ -35,23 +35,21 @@ dependencies: [
 ]
 ```
 
-### Cocoapods
+### CocoaPods
 
-Triangulation is available through [CocoaPods](http://cocoapods.org). To install
+Triangulation 2.0.0 is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Triangulation'
-```
-### Carthage
-```
-github "younatics/Triangulation"
+pod 'Triangulation', '2.0.0'
 ```
 
 ## Usage
 
 Add `TriangulationView` with custom cell size. That's it!
 ```swift
+import Triangulation
+
 let triangleView = TriangulationView(frame: view.bounds, image: image, cellSize: 40)
 view.addSubview(triangleView)
 ```
